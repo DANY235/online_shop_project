@@ -611,7 +611,7 @@ body::-webkit-scrollbar-thumb {
   width: 25px;
   display: inline-block;
   color: red;
-  background: url(/images/search.svg) center center no-repeat;
+  background: url(../images/search.svg) center center no-repeat;
   text-indent: -10000px;
   border: none;
   position: absolute;
