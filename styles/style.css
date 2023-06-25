@@ -592,7 +592,7 @@ body::-webkit-scrollbar-thumb {
   top: 0;
   right: 0;
   background: none;
-  z-index: 3;
+  z-index: 1;
   transition: width 0.4s cubic-bezier(0, 0.795, 0, 1);
   cursor: pointer;
 }
