@@ -667,7 +667,7 @@ body::-webkit-scrollbar-thumb {
     align-items: center;
     transition: 0.5s;
     overflow: hidden;
-    z-index: 2;
+    z-index: 3;
   }
 
   .header_menu_item {
@@ -687,7 +687,7 @@ body::-webkit-scrollbar-thumb {
     position: relative;
     top: 0;
     transition: 0.5s;
-    z-index: 3;
+    z-index: 4;
   }
 
   .body-fixated {
