@@ -270,6 +270,7 @@ body::-webkit-scrollbar-thumb {
 
 .product img {
   min-width: 100%;
+  max-width: 100%;
 }
 
 .product_description {
