@@ -11,6 +11,30 @@
       href="https://fonts.cdnfonts.com/css/helveticaneuecyr-2?styles=15251,15250,30122,30121"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/flickity@2/dist/flickity.min.css"
+    />
+    <link rel="stylesheet" href="styles/simple-lightbox.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.css"
+    />
+
+    <link href="styles/star-rating.css" rel="stylesheet" />
+
     <title>Naik</title>
   </head>
 
@@ -19,7 +43,7 @@
       <div class="header_head">
         <a href="#">Помощь</a>
         <span>|</span>
-        <a href="#">Войти</a>
+        <a href="#" onclick="openModal()">Войти</a>
       </div>
 
       <div class="header_content" id="myHeader">
@@ -28,23 +52,78 @@
         /></a>
 
         <nav class="header_menu">
-          <a href="#section1" class="header_menu_item">Новинки</a>
-          <a href="#section2" class="header_menu_item">Мужчины</a>
-          <a href="#section3" class="header_menu_item">Женщины</a>
-          <a href="#section4" class="header_menu_item">Дети</a>
+          <a
+            href="#section1"
+            class="header_menu_item"
+            data-bs-toggle="tooltip"
+            data-bs-placement="bottom"
+            data-bs-title="Категория: новинки"
+            >Новинки</a
+          >
+          <a
+            href="#section2"
+            class="header_menu_item"
+            data-bs-toggle="tooltip"
+            data-bs-placement="bottom"
+            data-bs-title="Категория: мужчины"
+            >Мужчины</a
+          >
+          <a
+            href="#section3"
+            class="header_menu_item"
+            data-bs-toggle="tooltip"
+            data-bs-placement="bottom"
+            data-bs-title="Категория: женщины"
+            >Женщины</a
+          >
+          <a
+            href="#section4"
+            class="header_menu_item"
+            data-bs-toggle="tooltip"
+            data-bs-placement="bottom"
+            data-bs-title="Категория: дети"
+            >Дети</a
+          >
         </nav>
         <div class="header_icons">
-          <a href="#"><img src="images/search.svg" alt="" /></a>
-          <a href="#"><img src="images/heart.svg" alt="" /></a>
-          <div class="cart">
-            <a href="#"><img src="images/cart.svg" alt="" /></a>
-            <div class="cart_count">0</div>
+          <div id="wrap">
+            <form action="#" autocomplete="on">
+              <input id="search" name="search" type="text" placeholder="Что ищем?"/>
+              <input id="search_submit" value="Rechercher" type="submit" />
+            </form>
+          </div>
+          <a href="#" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Избранное">
+            <img src="images/heart.svg" alt="избранное"/>
+          </a>
+          <div class="cart" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Корзина">
+            <a href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+              <img src="images/cart.svg" alt="корзина"/>
+            </a>
+            <div class="cart-count">0</div>
           </div>
         </div>
-        <div class="hamburger">
+        <div class="hamburger" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Категории">
           <span class="bar"></span>
           <span class="bar"></span>
           <span class="bar"></span>
+        </div>
+
+        <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasScrollingLabel">
+              Корзина
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul id="cart-items"></ul>
+            <div class="clear-cart-btn">
+              <button id="clear-cart-btn">
+                <img src="images/trash-can.svg" alt="#"/>
+                Очистить корзину
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </header>
@@ -59,77 +138,199 @@
           и достичь своих целей. Наши продукты разработаны с использованием
           новейших технологий и инновационных материалов.
         </p>
-        <a href="https://ru.wikipedia.org/wiki/Nike" class="button"
-          >Подробнее ></a
-        >
+        <a href="https://ru.wikipedia.org/wiki/Nike" class="button">Подробнее ></a>
       </section>
+
+      <div class="carousel" data-flickity='{ "autoPlay": true, "wrapAround": true, "bgLazyLoad": 1}'>
+        <div class="carousel-cell">
+          <img src="images/slider1.png" alt="слайд 1" />
+        </div>
+        <div class="carousel-cell">
+          <img src="images/slider2.png" alt="слайд 2" />
+        </div>
+        <div class="carousel-cell">
+          <img src="images/slider3.png" alt="слайд 3" />
+        </div>
+        <div class="carousel-cell">
+          <img src="images/slider4.png" alt="слайд 4" />
+        </div>
+        <div class="carousel-cell">
+          <img src="images/slider5.png" alt="слайд 5" />
+        </div>
+      </div>
 
       <section class="products_wrapper" id="section1">
         <h2 class="products_h2">Популярное на этой неделе</h2>
         <div class="products_items">
-          <div class="product">
-            <img src="images/shoes1.png" alt="товар_1" />
+          <div class="product gallery1">
+            <a href="images/shoes1.png">
+              <img src="images/shoes1.png" alt="товар_1" class="product-image"
+            /></a>
+            <a href="images/shoes1.1.jpeg" style="display: none">
+              <img src="images/shoes1.1.jpeg" alt="товар_1"
+            /></a>
+            <a href="images/shoes1.2.jpeg" style="display: none">
+              <img src="images/shoes1.2.jpeg" alt="товар_1" />
+            </a>
             <div class="product_description">
-              <div>
-                <div class="product_name">Nike Air Force 1 '07</div>
-                <div class="product_price">15 000 ₽</div>
+              <div class="product-name-price-count">
+                <div class="product-name-price">
+                  <div class="product_name">Nike Air Force 1 '07</div>
+                  <div class="product_price">15 000 ₽</div>
+                </div>
+                <div class="number">
+                  <button class="number-minus" type="button" onclick="this.nextElementSibling.stepDown();// this.nextElementSibling.onchange();"> - </button>
+                  <input type="number" min="1" value="1" class="quantity-input"/>
+                  <button class="number-plus" type="button" onclick="this.previousElementSibling.stepUp();  // this.previousElementSibling.onchange();"> + </button>
+                </div>
               </div>
-              <button class="button add_to_cart">В корзину</button>
+              <button class="button add-to-cart">В корзину</button>
+              <button class="remove-from-cart-btn button" style="display: none">
+                Удалить из корзины
+              </button>
             </div>
           </div>
 
-          <div class="product">
-            <img src="images/shoes2.png" alt="товар_1" />
+          <div class="product gallery2">
+            <a href="images/shoes2.png">
+              <img src="images/shoes2.png" alt="товар_2" class="product-image"/>
+            </a>
+            <a href="images/shoes2.1.webp" style="display: none">
+              <img src="images/shoes2.1.webp" alt="товар_2"/>
+            </a>
+            <a href="images/shoes2.2.webp" style="display: none">
+              <img src="images/shoes2.2.webp" alt="товар_2"/>
+            </a>
             <div class="product_description">
               <div>
-                <div class="product_name">Nike Blazer Mid '77</div>
-                <div class="product_price">12 000 ₽</div>
+                <div class="product-name-price-count">
+                  <div class="product-name-price">
+                    <div class="product_name">Nike Blazer Mid '77</div>
+                    <div class="product_price">12 000 ₽</div>
+                  </div>
+                  <div class="number">
+                    <button class="number-minus" type="button" onclick="this.nextElementSibling.stepDown(); // this.nextElementSibling.onchange();"> - </button>
+                    <input type="number" min="1" value="1" class="quantity-input"/>
+                    <button class="number-plus" type="button" onclick="this.previousElementSibling.stepUp(); // this.previousElementSibling.onchange();">  + </button>
+                  </div>
+                </div>
               </div>
-              <button class="button add_to_cart">В корзину</button>
+              <button class="button add-to-cart">В корзину</button>
+              <button class="remove-from-cart-btn button" style="display: none">
+                Удалить из корзины
+              </button>
             </div>
           </div>
 
-          <div class="product">
-            <img src="images/shoes3.png" alt="товар_1" />
+          <div class="product gallery3">
+            <a href="images/shoes3.png">
+              <img src="images/shoes3.png" alt="товар_3" class="product-image"/>
+            </a>
+            <a href="images/shoes3.1.webp" style="display: none">
+              <img src="images/shoes3.1.webp" alt="товар_3"/>
+            </a>
             <div class="product_description">
               <div>
-                <div class="product_name">Air Jordan 1 Low</div>
-                <div class="product_price">11 000 ₽</div>
+                <div class="product-name-price-count">
+                  <div class="product-name-price">
+                    <div class="product_name">Air Jordan 1 Low</div>
+                    <div class="product_price">11 000 ₽</div>
+                  </div>
+                  <div class="number">
+                    <button class="number-minus" type="button" onclick="this.nextElementSibling.stepDown(); // this.nextElementSibling.onchange();"> - </button>
+                    <input type="number" min="1" value="1" class="quantity-input"/>
+                    <button class="number-plus" type="button" onclick="this.previousElementSibling.stepUp(); // this.previousElementSibling.onchange();"> + </button>
+                  </div>
+                </div>
               </div>
-              <button class="button add_to_cart">В корзину</button>
+              <button class="button add-to-cart">В корзину</button>
+              <button class="remove-from-cart-btn button" style="display: none">
+                Удалить из корзины
+              </button>
             </div>
           </div>
 
-          <div class="product">
-            <img src="images/shoes4.png" alt="товар_1" />
+          <div class="product gallery4">
+            <a href="images/shoes4.png">
+              <img src="images/shoes4.png" alt="товар_4" class="product-image"/>
+            </a>
+            <a href="images/shoes4.1.webp" style="display: none">
+              <img src="images/shoes4.1.webp" alt="товар_4"/>
+            </a>
             <div class="product_description">
               <div>
-                <div class="product_name">Nike Air Force 1 '07</div>
-                <div class="product_price">11 111 ₽</div>
+                <div class="product-name-price-count">
+                  <div class="product-name-price">
+                    <div class="product_name">Nike Air Force 1 '07</div>
+                    <div class="product_price">11 111 ₽</div>
+                  </div>
+                  <div class="number">
+                    <button class="number-minus" type="button" onclick="this.nextElementSibling.stepDown(); // this.nextElementSibling.onchange();"> - </button>
+                    <input type="number" min="1" value="1" class="quantity-input"/>
+                    <button class="number-plus" type="button" onclick="this.previousElementSibling.stepUp(); // this.previousElementSibling.onchange();"> + </button>
+                  </div>
+                </div>
               </div>
-              <button class="button add_to_cart">В корзину</button>
+              <button class="button add-to-cart">В корзину</button>
+              <button class="remove-from-cart-btn button" style="display: none">
+                Удалить из корзины
+              </button>
             </div>
           </div>
 
-          <div class="product">
-            <img src="images/shoes5.png" alt="товар_1" />
+          <div class="product gallery5">
+            <a href="images/shoes5.png">
+              <img src="images/shoes5.png" alt="товар_5" class="product-image"/>
+            </a>
+            <a href="images/shoes5.1.webp" style="display: none">
+              <img src="images/shoes5.1.webp" alt="товар_5"/>
+            </a>
             <div class="product_description">
               <div>
-                <div class="product_name">Nike Air Max SYSTM</div>
-                <div class="product_price">9 699 ₽</div>
+                <div class="product-name-price-count">
+                  <div class="product-name-price">
+                    <div class="product_name">Nike Air Max SYSTM</div>
+                    <div class="product_price">9 699 ₽</div>
+                  </div>
+                  <div class="number">
+                    <button class="number-minus" type="button" onclick="this.nextElementSibling.stepDown(); // this.nextElementSibling.onchange();"> - </button>
+                    <input type="number" min="1" value="1" class="quantity-input"/>
+                    <button class="number-plus" type="button" onclick="this.previousElementSibling.stepUp(); // this.previousElementSibling.onchange();"> + </button>
+                  </div>
+                </div>
               </div>
-              <button class="button add_to_cart">В корзину</button>
+              <button class="button add-to-cart">В корзину</button>
+              <button class="remove-from-cart-btn button" style="display: none">
+                Удалить из корзины
+              </button>
             </div>
           </div>
 
-          <div class="product">
-            <img src="images/shoes6.png" alt="товар_1" />
+          <div class="product gallery6">
+            <!-- <a href="images/shoes6.png"> -->
+            <img src="images/shoes6.png" alt="товар_6" class="product-image" onclick="openProductModal()"/>
+            <!-- </a>
+            <a href="images/shoes6.1.webp" style="display: none">
+              <img src="images/shoes6.1.webp" alt="товар_6"
+            /></a> -->
             <div class="product_description">
               <div>
-                <div class="product_name">Nike Court Legacy</div>
-                <div class="product_price">7 499 ₽</div>
+                <div class="product-name-price-count">
+                  <div class="product-name-price">
+                    <div class="product_name">Nike Court Legacy</div>
+                    <div class="product_price">7 499 ₽</div>
+                  </div>
+                  <div class="number">
+                    <button class="number-minus" type="button" onclick="this.nextElementSibling.stepDown(); // this.nextElementSibling.onchange();"> - </button>
+                    <input type="number" min="1" value="1" class="quantity-input"/>
+                    <button class="number-plus" type="button" onclick="this.previousElementSibling.stepUp(); // this.previousElementSibling.onchange();"> + </button>
+                  </div>
+                </div>
               </div>
-              <button class="button add_to_cart">В корзину</button>
+              <button class="button add-to-cart">В корзину</button>
+              <button class="remove-from-cart-btn button" style="display: none">
+                Удалить из корзины
+              </button>
             </div>
           </div>
         </div>
@@ -138,36 +339,90 @@
       <section class="products_wrapper" id="section2">
         <h2 class="products_h2">Мужские кроссовки</h2>
         <div class="products_items">
-          <div class="product">
-            <img src="images/shoes1.png" alt="товар_1" />
+          <div class="product gallery1-1">
+            <a href="images/shoes1.png">
+              <img src="images/shoes1.png" alt="товар_1" class="product-image"/>
+            </a>
+            <a href="images/shoes1.1.jpeg" style="display: none">
+              <img src="images/shoes1.1.jpeg" alt="товар_1"/>
+            </a>
+            <a href="images/shoes1.2.jpeg" style="display: none">
+              <img src="images/shoes1.2.jpeg" alt="товар_1" />
+            </a>
             <div class="product_description">
               <div>
-                <div class="product_name">Nike Air Force 1 '07</div>
-                <div class="product_price">15 000 ₽</div>
+                <div class="product-name-price-count">
+                  <div class="product-name-price">
+                    <div class="product_name">Nike Air Force 1 '07</div>
+                    <div class="product_price">15 000 ₽</div>
+                  </div>
+                  <div class="number">
+                    <button class="number-minus" type="button" onclick="this.nextElementSibling.stepDown(); // this.nextElementSibling.onchange();"> - </button>
+                    <input type="number" min="1" value="1" class="quantity-input"/>
+                    <button class="number-plus" type="button" onclick="this.previousElementSibling.stepUp(); // this.previousElementSibling.onchange();"> + </button>
+                  </div>
+                </div>
               </div>
-              <button class="button add_to_cart">В корзину</button>
+              <button class="button add-to-cart">В корзину</button>
+              <button class="remove-from-cart-btn button" style="display: none">
+                Удалить из корзины
+              </button>
             </div>
           </div>
 
-          <div class="product">
-            <img src="images/shoes5.png" alt="товар_1" />
+          <div class="product gallery5-1">
+            <a href="images/shoes5.png">
+              <img src="images/shoes5.png" alt="товар_5" class="product-image"/>
+            </a>
+            <a href="images/shoes5.1.webp" style="display: none">
+              <img src="images/shoes5.1.webp" alt="товар_5"/>
+            </a>
             <div class="product_description">
               <div>
-                <div class="product_name">Nike Air Force 1 '07</div>
-                <div class="product_price">15 000 ₽</div>
+                <div class="product-name-price-count">
+                  <div class="product-name-price">
+                    <div class="product_name">Nike Air Max SYSTM</div>
+                    <div class="product_price">9 699 ₽</div>
+                  </div>
+                  <div class="number">
+                    <button class="number-minus" type="button" onclick="this.nextElementSibling.stepDown(); // this.nextElementSibling.onchange();"> - </button>
+                    <input type="number" min="1" value="1" class="quantity-input"/>
+                    <button class="number-plus" type="button" onclick="this.previousElementSibling.stepUp(); // this.previousElementSibling.onchange();"> + </button>
+                  </div>
+                </div>
               </div>
-              <button class="button add_to_cart">В корзину</button>
+              <button class="button add-to-cart">В корзину</button>
+              <button class="remove-from-cart-btn button" style="display: none">
+                Удалить из корзины
+              </button>
             </div>
           </div>
 
-          <div class="product">
-            <img src="images/shoes4.png" alt="товар_1" />
+          <div class="product gallery4-1">
+            <a href="images/shoes4.png">
+              <img src="images/shoes4.png" alt="товар_4" class="product-image"/>
+            </a>
+            <a href="images/shoes4.1.webp" style="display: none">
+              <img src="images/shoes4.1.webp" alt="товар_4"/>
+            </a>
             <div class="product_description">
               <div>
-                <div class="product_name">Nike Air Force 1 '07</div>
-                <div class="product_price">15 000 ₽</div>
+                <div class="product-name-price-count">
+                  <div class="product-name-price">
+                    <div class="product_name">Nike Air Force 1 '07</div>
+                    <div class="product_price">11 111 ₽</div>
+                  </div>
+                  <div class="number">
+                    <button class="number-minus" type="button" onclick="this.nextElementSibling.stepDown(); // this.nextElementSibling.onchange();"> - </button>
+                    <input type="number" min="1" value="1" class="quantity-input"/>
+                    <button class="number-plus" type="button" onclick="this.previousElementSibling.stepUp(); // this.previousElementSibling.onchange();"> + </button>
+                  </div>
+                </div>
               </div>
-              <button class="button add_to_cart">В корзину</button>
+              <button class="button add-to-cart">В корзину</button>
+              <button class="remove-from-cart-btn button" style="display: none">
+                Удалить из корзины
+              </button>
             </div>
           </div>
         </div>
@@ -176,36 +431,90 @@
       <section class="products_wrapper" id="section3">
         <h2 class="products_h2">Женские кроссовки</h2>
         <div class="products_items">
-          <div class="product">
-            <img src="images/shoes2.png" alt="товар_1" />
+          <div class="product gallery2-1">
+            <a href="images/shoes2.png">
+              <img src="images/shoes2.png" alt="товар_2" class="product-image"/>
+            </a>
+            <a href="images/shoes2.1.webp" style="display: none">
+              <img src="images/shoes2.1.webp" alt="товар_2"/>
+            </a>
+            <a href="images/shoes2.2.webp" style="display: none">
+              <img src="images/shoes2.2.webp" alt="товар_2" />
+            </a>
             <div class="product_description">
               <div>
-                <div class="product_name">Nike Air Force 1 '07</div>
-                <div class="product_price">15 000 ₽</div>
+                <div class="product-name-price-count">
+                  <div class="product-name-price">
+                    <div class="product_name">Nike Blazer Mid '77</div>
+                    <div class="product_price">12 000 ₽</div>
+                  </div>
+                  <div class="number">
+                    <button class="number-minus" type="button" onclick="this.nextElementSibling.stepDown(); // this.nextElementSibling.onchange();"> - </button>
+                    <input type="number" min="1" value="1" class="quantity-input"/>
+                    <button class="number-plus" type="button" onclick="this.previousElementSibling.stepUp(); // this.previousElementSibling.onchange();"> + </button>
+                  </div>
+                </div>
               </div>
-              <button class="button add_to_cart">В корзину</button>
+              <button class="button add-to-cart">В корзину</button>
+              <button class="remove-from-cart-btn button" style="display: none">
+                Удалить из корзины
+              </button>
             </div>
           </div>
 
-          <div class="product">
-            <img src="images/shoes3.png" alt="товар_1" />
+          <div class="product gallery3-1">
+            <a href="images/shoes3.png">
+              <img src="images/shoes3.png" alt="товар_3" class="product-image"/>
+            </a>
+            <a href="images/shoes3.1.webp" style="display: none">
+              <img src="images/shoes3.1.webp" alt="товар_3"/>
+            </a>
             <div class="product_description">
               <div>
-                <div class="product_name">Nike Air Force 1 '07</div>
-                <div class="product_price">15 000 ₽</div>
+                <div class="product-name-price-count">
+                  <div class="product-name-price">
+                    <div class="product_name">Air Jordan 1 Low</div>
+                    <div class="product_price">11 000 ₽</div>
+                  </div>
+                  <div class="number">
+                    <button class="number-minus" type="button" onclick="this.nextElementSibling.stepDown(); // this.nextElementSibling.onchange();"> - </button>
+                    <input type="number" min="1" value="1" class="quantity-input"/>
+                    <button class="number-plus" type="button" onclick="this.previousElementSibling.stepUp(); // this.previousElementSibling.onchange();"> + </button>
+                  </div>
+                </div>
               </div>
-              <button class="button add_to_cart">В корзину</button>
+              <button class="button add-to-cart">В корзину</button>
+              <button class="remove-from-cart-btn button" style="display: none">
+                Удалить из корзины
+              </button>
             </div>
           </div>
 
-          <div class="product">
-            <img src="images/shoes4.png" alt="товар_1" />
+          <div class="product gallery4-2">
+            <a href="images/shoes4.png">
+              <img src="images/shoes4.png" alt="товар_4" class="product-image"/>
+            </a>
+            <a href="images/shoes4.1.webp" style="display: none">
+              <img src="images/shoes4.1.webp" alt="товар_4"/>
+            </a>
             <div class="product_description">
               <div>
-                <div class="product_name">Nike Air Force 1 '07</div>
-                <div class="product_price">15 000 ₽</div>
+                <div class="product-name-price-count">
+                  <div class="product-name-price">
+                    <div class="product_name">Nike Air Force 1 '07</div>
+                    <div class="product_price">11 111 ₽</div>
+                  </div>
+                  <div class="number">
+                    <button class="number-minus" type="button" onclick="this.nextElementSibling.stepDown(); // this.nextElementSibling.onchange();"> - </button>
+                    <input type="number" min="1" value="1" class="quantity-input"/>
+                    <button class="number-plus" type="button" onclick="this.previousElementSibling.stepUp(); // this.previousElementSibling.onchange();"> + </button>
+                  </div>
+                </div>
               </div>
-              <button class="button add_to_cart">В корзину</button>
+              <button class="button add-to-cart">В корзину</button>
+              <button class="remove-from-cart-btn button" style="display: none">
+                Удалить из корзины
+              </button>
             </div>
           </div>
         </div>
@@ -214,19 +523,187 @@
       <section class="products_wrapper" id="section4">
         <h2 class="products_h2">Детские кроссовки</h2>
         <div class="products_items">
-          <div class="product">
-            <img src="images/shoes6.png" alt="товар_1" />
+          <div class="product gallery6-1">
+            <!-- <a href="images/shoes6.png"> -->
+            <img src="images/shoes6.png" alt="товар_6" class="product-image" onclick="openProductModal()"/>
+            <!-- </a>
+            <a href="images/shoes6.1.webp" style="display: none">
+              <img src="images/shoes6.1.webp" alt="товар_6"
+            /></a> -->
             <div class="product_description">
               <div>
-                <div class="product_name">Nike Air Force 1 '07</div>
-                <div class="product_price">15 000 ₽</div>
+                <div class="product-name-price-count">
+                  <div class="product-name-price">
+                    <div class="product_name">Nike Court Legacy</div>
+                    <div class="product_price">7 499 ₽</div>
+                  </div>
+                  <div class="number">
+                    <button class="number-minus" type="button" onclick="this.nextElementSibling.stepDown(); // this.nextElementSibling.onchange();"> - </button>
+                    <input type="number" min="1" value="1" class="quantity-input"/>
+                    <button class="number-plus" type="button" onclick="this.previousElementSibling.stepUp(); // this.previousElementSibling.onchange();"> + </button>
+                  </div>
+                </div>
               </div>
-              <button class="button add_to_cart">В корзину</button>
+              <button class="button add-to-cart">В корзину</button>
+              <button class="remove-from-cart-btn button" style="display: none">
+                Удалить из корзины
+              </button>
             </div>
           </div>
         </div>
       </section>
+
+      <div class="modal" id="myModal">
+        <div class="modal_content">
+          <div class="modal_header">
+            <span class="close" onclick="closeModal()">&times;</span>
+          </div>
+          <div class="modal_header-logo">
+            <img src="images/logo.svg" alt="логотип"/>
+            <p>YOUR ACCOUNT FOR EVERYTHING NIKE</p>
+          </div>
+          <div class="modal_body">
+            <form action="#">
+              <div class="feedback-form_content">
+                <div>
+                  <i>
+                    <img src="images/at-svgrepo-com.svg" class="input-icon" alt="@"/>
+                  </i>
+                  <input type="text" class="input-box" placeholder="email"/>
+                </div>
+                <div>
+                  <i>
+                    <img src="images/lock-svgrepo-com.svg" class="input-icon" alt="#"/>
+                  </i>
+                  <input type="password" class="input-box" placeholder="password"/>
+                </div>
+                <div>
+                  Входя в систему, вы соглашаетесь с
+                  <a href="#">Privacy Policy</a> и <a href="#">Terms of Use</a>
+                </div>
+                <input type="submit" class="button"/>
+                <div>Еще не с нами? <a href="#">Зарегистрироваться </a></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal" id="myModalProduct">
+        <div class="modal_content modal_content-product">
+          <div class="modal_header">
+            <span class="close" onclick="closeProductModal()">&times;</span>
+          </div>
+          <div class="modal_body-product">
+            <div class="modal-slider">
+              <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff;" class="swiper mySwiper2">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <img src="images/shoes6.png" alt="Слайд1/">
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="images/shoes6.1.webp" alt="Слайд2/">
+                  </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+              </div>
+              <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <img src="images/shoes6.png" alt="Слайд1/">
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="images/shoes6.1.webp" alt="Слайд2/">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-description">
+              <h2>Кроссовки</h2>
+              <p class="product_name">Nike Court Legacy</p>
+              <select class="star-rating">
+                <option value="">Select a rating</option>
+                <option value="5">Excellent</option>
+                <option value="4">Very Good</option>
+                <option value="3">Average</option>
+                <option value="2">Poor</option>
+                <option value="1">Terrible</option>
+              </select>
+              <button class="button">В корзину</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
+
+    <!-- START Bootstrap-Cookie-Alert -->
+    <div class="alert text-center cookiealert" role="alert">
+      <b>Тебе нравятся печеньки?</b> &#x1F36A; We use cookies to ensure you get
+      the best experience on our website.
+      <a href="https://cookiesandyou.com/" target="_blank">Узнать больше</a>
+
+      <button type="button" class="btn btn-primary btn-sm acceptcookies">
+        Я согласен
+      </button>
+    </div>
+    <!-- END Bootstrap-Cookie-Alert -->
+
+    <footer class="footer">
+      <div class="footer_content">
+        <div class="footer_menu">
+          <nav class="footer_menu-column">
+            <a href="#">О нас</a>
+            <a href="#">Новости</a>
+            <a href="#">Карьера</a>
+            <a href="#">Инвесторы</a>
+          </nav>
+          <div class="footer_menu-icons">
+            <a href="#"><img src="images/twitter.svg" alt="твиттер" /></a>
+            <a href="#"><img src="images/facebook.svg" alt="фейсбук" /></a>
+            <a href="#"><img src="images/instagram.svg" alt="инст" /></a>
+            <a href="#"><img src="images/youtube.svg" alt="ютуб" /></a>
+          </div>
+        </div>
+        <p class="footer_about">© 2023 Nike, Inc. All Rights Reserved</p>
+      </div>
+    </footer>
+
+    <script src="scripts/cart.js"></script>
+
+    <script src="scripts/star-rating.js"></script>
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="scripts/simple-lightbox.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        spaceBetween: 10,
+        slidesPerView: 4,
+        freeMode: true,
+        watchSlidesProgress: true,
+      });
+      var swiper2 = new Swiper(".mySwiper2", {
+        spaceBetween: 10,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        thumbs: {
+          swiper: swiper,
+        },
+      });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.js"></script>
 
     <script src="scripts/script.js"></script>
   </body>
